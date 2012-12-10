@@ -25,8 +25,9 @@ public class GreenImageFile {
 	/** Save the path*/
 	private String[] imagePath;
 	
+	
 	/**
-	 * Constructor of imageicon<p>
+	 * Constructor of GreenImageFile<p>
 	 * @param path[] : Path of image
 	 */
 	public GreenImageFile(String[] path){
@@ -47,17 +48,60 @@ public class GreenImageFile {
 	}
 	
 	/**
-	 * Get Image
-	 * @param imageId
-	 * @return Image
+	 * Get Image via image id
+	 * @param	id
+	 * @throws	IllegalArgumentException
+	 * 			No id fit the input
+	 * @return	Image
 	 */
-	public Image getImage(int imageId){
-		if(imageId < 0 || imageId > imageCount){
+	public Image getImage(int id){
+		if(id < 0 || id > imageCount){
 			throw new IllegalArgumentException("Index out of range.");
 		}
 		else{
-			return image[imageId];
+			return image[id];
 		}
+	}
+	
+	/**
+	 * Get image via image path
+	 * @param	path
+	 * @throws	IllegalArgumentException
+	 * 			No path fit the input
+	 * @return	Image
+	 */
+	public Image getImage(String path){
+		int i = 0;
+		
+		//Search if any path fit the input
+		for(i=0; i<imageCount; i++){
+			if(imagePath[i] == path){
+				break;
+			}
+		}
+		
+		// Check if out of range
+		if(i >= imageCount){
+			//Don't have any path fit the input
+			throw new IllegalArgumentException("Can't search path");
+		}else{
+			return image[i];
+		}
+	}
+	
+	/**
+	 * Get image list
+	 * @return String[][] id:path
+	 */
+	public String[][] getImageList(){
+		String[][] list = new String[imageCount][2];
+		
+		for(int i=0; i<imageCount; i++){
+			list[i][0] = String.valueOf(i);
+			list[i][1] = imagePath[i];
+		}
+		
+		return list;
 	}
 
 }
