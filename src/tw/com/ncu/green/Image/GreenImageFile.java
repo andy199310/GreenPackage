@@ -28,7 +28,7 @@ public class GreenImageFile {
 	
 	/**
 	 * Constructor of GreenImageFile<p>
-	 * @param path[] : Path of image
+	 * @param path : Path of image
 	 */
 	public GreenImageFile(String[] path){
 		imageCount = path.length;
