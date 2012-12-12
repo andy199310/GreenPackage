@@ -6,8 +6,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.util.Arrays;
 
-import com.sun.org.apache.bcel.internal.generic.SWAP;
-
 /**
  * Some useful method to modify image
  * @author Green
@@ -34,9 +32,9 @@ public class GreenImageModifier {
 	
 	/**
 	 * Resize image to custom size, by percent
-	 * @param originalImage
-	 * @param precent
-	 * @return
+	 * @param originalImage	- Image which want to resize
+	 * @param percent - New size by percent
+	 * @return resized image
 	 */
 	public static Image resize(Image originalImage, double percent){
 		int width = (int) (originalImage.getWidth(null) * percent/100);
