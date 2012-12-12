@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
@@ -75,7 +76,7 @@ public class GreenImageFile {
 		
 		//Search if any path fit the input
 		for(i=0; i<imageCount; i++){
-			if(imagePath[i] == path){
+			if(imagePath[i].equals(path)){
 				break;
 			}
 		}
@@ -83,7 +84,7 @@ public class GreenImageFile {
 		// Check if out of range
 		if(i >= imageCount){
 			//Don't have any path fit the input
-			throw new IllegalArgumentException("Can't search path");
+			throw new IllegalArgumentException("Can't search path:" + path);
 		}else{
 			return image[i];
 		}
