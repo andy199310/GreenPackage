@@ -1,4 +1,4 @@
-package tw.com.ncu.green.Image;
+package com.weigreen.Image;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
